@@ -6,7 +6,7 @@ export const Search = () => {
 
     const[value, setValue] = useState('')
 
-    const {show} =useContext(AlertContext)
+    const alert =useContext(AlertContext)
 
     const github = useContext(GithubContext)
 
@@ -15,10 +15,13 @@ export const Search = () => {
             return
         }
 
+        github.clearUsers()
+
         if (value.trim()){
+            alert.hide()
             github.search(value.trim())
         } else {
-            show('Введите данные пользователя')
+            alert.show('Введите данные пользователя')
         }
     }
 
