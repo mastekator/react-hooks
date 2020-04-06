@@ -32,7 +32,7 @@ export const Profile = ({match}) => {
                 <div className="card-body">
                     <div className="row">
                         <div className="col-sm-3 text-center">
-                            <img style={{width: '150px'}} src={avatar_url} alt={name}/>
+                            <img className='mb-3' style={{maxWidth: '100%'}} src={avatar_url} alt={name}/>
                             <h2>{name}</h2>
                             {location && <p>Местоположение: {location}</p>}
                         </div>
@@ -43,15 +43,17 @@ export const Profile = ({match}) => {
                                     <p>{bio}</p>
                                 </React.Fragment>
                             }
-                            <a href={html_url} rel="noopener noreferrer" target='_blank' className='btn btn-dark'>Открыть профиль</a>
                             <ul>
                                 {login && <li><strong>Username:</strong> {login}</li>}
                                 {company && <li><strong>Компания:</strong> {company}</li>}
                                 {blog && <li><strong>Website:</strong> {blog}</li>}
                             </ul>
-                            <div className='badge badge-primary'>Подписчики: {followers}</div>
-                            <div className='badge badge-success'>Подписан: {following}</div>
-                            <div className='badge badge-info'>Репозитории: {public_repos}</div>
+                            <div className='mb-3'>
+                                <a href={html_url} rel="noopener noreferrer" target='_blank' className='btn btn-dark'>Открыть профиль</a>
+                            </div>
+                            <div className='badge badge-primary mr-3'>Подписчики: {followers}</div>
+                            <div className='badge badge-success mr-3'>Подписан: {following}</div>
+                            <div className='badge badge-info mr-3'>Репозитории: {public_repos}</div>
                             <div className='badge badge-dark'>Gists: {public_gists}</div>
                         </div>
                     </div>
